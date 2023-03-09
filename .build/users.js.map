@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../users.ts"],
+  "sourcesContent": ["//get a single user by the (unique) username\nexport const findByUsername = async (username) => {\n  const query = 'SELECT * from users where username = ?'; const user = await db.run_query(query, [username]); return user;\n}"],
+  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AACO,MAAM,iBAAiB,OAAO,aAAa;AAChD,QAAM,QAAQ;AAA0C,QAAM,OAAO,MAAM,GAAG,UAAU,OAAO,CAAC,QAAQ,CAAC;AAAG,SAAO;AACrH;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["import Koa from \"koa\";\nimport Router, {RouterContext} from \"koa-router\"; import logger from \"koa-logger\";\nimport json from \"koa-json\";\nimport bodyParser from \"koa-bodyparser\";\n\nconst app: Koa = new Koa();\nconst router: Router = new Router();\n\nrouter.get('/', async (ctx: RouterContext, next: any) => { ctx.body = { msg: 'Hello world!' };\nawait next();\n})\n\nrouter.post('/', async (ctx: RouterContext, next: any) => {\nconst data = ctx.request.body;\nctx.body=data;\n  await next();\n})\n\n\napp.use(json());\napp.use(logger()); \napp.use(bodyParser());\napp.use(router.routes()).use(router.allowedMethods());\napp.listen(10888, () => {\n  console.log(\"Koa Started\");\n})"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA,iBAAgB;AAChB,wBAAoC;AAAc,wBAAmB;AACrE,sBAAiB;AACjB,4BAAuB;AAEvB,MAAM,MAAW,IAAI,WAAAA,QAAI;AACzB,MAAM,SAAiB,IAAI,kBAAAC,QAAO;AAElC,OAAO,IAAI,KAAK,OAAO,KAAoB,SAAc;AAAE,MAAI,OAAO,EAAE,KAAK,eAAe;AAC5F,QAAM,KAAK;AACX,CAAC;AAED,OAAO,KAAK,KAAK,OAAO,KAAoB,SAAc;AAC1D,QAAM,OAAO,IAAI,QAAQ;AACzB,MAAI,OAAK;AACP,QAAM,KAAK;AACb,CAAC;AAGD,IAAI,QAAI,gBAAAC,SAAK,CAAC;AACd,IAAI,QAAI,kBAAAC,SAAO,CAAC;AAChB,IAAI,QAAI,sBAAAC,SAAW,CAAC;AACpB,IAAI,IAAI,OAAO,OAAO,CAAC,EAAE,IAAI,OAAO,eAAe,CAAC;AACpD,IAAI,OAAO,OAAO,MAAM;AACtB,UAAQ,IAAI,aAAa;AAC3B,CAAC;",
+  "names": ["Koa", "Router", "json", "logger", "bodyParser"]
+}
